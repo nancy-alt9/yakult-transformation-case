@@ -54,12 +54,18 @@
     background:#fff;border-radius:12px;overflow:hidden;
     box-shadow:0 3px 12px rgba(0,0,0,.06);display:flex;flex-direction:column;
   }
-  .step-head{padding:14px 18px;color:#fff;display:flex;align-items:center;gap:12px;}
+  .step-head{padding:16px 18px 14px;color:#fff;display:flex;align-items:flex-start;gap:12px;}
   .step-head .num{
     width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.24);
-    display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;margin-top:2px;
   }
-  .step-head h3{font-size:14px;font-weight:700;line-height:1.35;}
+  .step-head h3{font-size:14px;font-weight:700;line-height:1.4;flex:1;}
+  .step-head h3 b{font-size:16px;font-weight:800;letter-spacing:.5px;}
+  .head-tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px;}
+  .head-tags span{
+    font-size:10.5px;background:rgba(255,255,255,.22);color:#fff;
+    padding:3px 8px;border-radius:5px;font-weight:500;letter-spacing:.2px;
+  }
   .step-1 .step-head{background:linear-gradient(135deg,#ff8a65,#ff7043);}
   .step-2 .step-head{background:linear-gradient(135deg,#f4511e,#e53935);}
   .step-3 .step-head{background:linear-gradient(135deg,#c62828,#8e0000);}
@@ -181,38 +187,15 @@
     </div>
   </div>
 
-  <!-- 三年一张图 -->
-  <div class="timeline-row">
-    <div class="tl-card tl-2024">
-      <div class="row1"><div class="year">2024</div><div class="stage">品宣 × 朋友圈起量</div></div>
-      <div>
-        <span class="k">首次尝试</span><span class="k">28 天破 195w</span><span class="k">ROI 0.65</span>
-      </div>
-      <div class="arrow">›</div>
-    </div>
-    <div class="tl-card tl-2025">
-      <div class="row1"><div class="year">2025</div><div class="stage">always-on 小程序直购</div></div>
-      <div>
-        <span class="k">联名 × 加价买赠</span><span class="k">日耗 1.6w</span><span class="k">ROI 0.75</span>
-      </div>
-      <div class="arrow">›</div>
-    </div>
-    <div class="tl-card tl-2026">
-      <div class="row1"><div class="year">2026</div><div class="stage">小店直购 + 智券爆量</div></div>
-      <div>
-        <span class="k">日耗 37w</span><span class="k">下单率 2.49%</span><span class="k">腾讯营销智券</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 三步横向并列 -->
+  <!-- 三步横向并列（已合并时间轴） -->
   <div class="steps-row">
 
     <!-- Step 1 -->
     <div class="step step-1">
       <div class="step-head">
         <div class="num">1</div>
-        <h3>2024 起量期<br><span style="font-weight:400;opacity:.9;font-size:12px;">新品上市 · 朋友圈广告品宣直购</span></h3>
+        <h3><b>2024 转型初期</b><br><span style="font-weight:400;opacity:.9;font-size:12px;">小程序直购阶段性投放起量</span>
+        <div class="head-tags"><span>首次尝试</span><span>28 天破 195w</span><span>ROI 0.65</span></div></h3>
       </div>
       <div class="step-body">
         <div class="bg-note">
@@ -244,7 +227,8 @@
     <div class="step step-2">
       <div class="step-head">
         <div class="num">2</div>
-        <h3>2025 转型期<br><span style="font-weight:400;opacity:.9;font-size:12px;">always-on 小程序直购 · 联名破圈</span></h3>
+        <h3><b>2025 转型第二阶段</b><br><span style="font-weight:400;opacity:.9;font-size:12px;">小程序直购全年稳定投放增长</span>
+        <div class="head-tags"><span>联名 × 加价买赠</span><span>日耗 1.6w</span><span>ROI 0.75</span></div></h3>
       </div>
       <div class="step-body">
         <div class="bg-note">
@@ -281,7 +265,8 @@
     <div class="step step-3">
       <div class="step-head">
         <div class="num">3</div>
-        <h3>2026 爆发期<br><span style="font-weight:400;opacity:.9;font-size:12px;">小店直购 · 腾讯营销智券爆量</span></h3>
+        <h3><b>2026 爆发期</b><br><span style="font-weight:400;opacity:.9;font-size:12px;">小程序和小店直购双管齐下爆量</span>
+        <div class="head-tags"><span>日耗 37w</span><span>下单率 2.49%</span><span>腾讯营销智券</span></div></h3>
       </div>
       <div class="step-body">
         <div class="bg-note">
