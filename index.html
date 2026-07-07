@@ -110,6 +110,25 @@
   .step-2 .bg-note{border-left-color:#e53935;} .step-2 .bg-note .bg-title{background:#e53935;}
   .step-3 .bg-note{border-left-color:#c62828;} .step-3 .bg-note .bg-title{background:#c62828;}
 
+  /* 亮点 & 具体操作 */
+  .detail-block{display:flex;flex-direction:column;gap:8px;}
+  .detail-item{background:#fff;border:1px solid #f5d5c8;border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.65;color:#333;}
+  .detail-item .lbl{
+    display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#f4511e;
+    padding:2px 8px;border-radius:4px;margin-right:6px;letter-spacing:1px;vertical-align:2px;
+  }
+  .detail-item b{color:#c62828;font-weight:700;}
+  .detail-item .flow{color:#555;}
+  .detail-item .flow .arr{color:#f4511e;margin:0 3px;font-weight:700;}
+  .step-2 .detail-item .lbl{background:#e53935;}
+  .step-3 .detail-item .lbl{background:#c62828;}
+
+  /* 单卡大号 KPI（step-1 突出 195w+） */
+  .kpi-grid.solo{grid-template-columns:1fr;}
+  .kpi-grid.solo .kpi{padding:14px 12px;}
+  .kpi-grid.solo .kpi .v{font-size:28px;}
+  .kpi-grid.solo .kpi .l{font-size:12.5px;}
+
   /* 客户三件事 */
   .todo-wrap{
     background:linear-gradient(135deg,#fff5ef,#ffe8dd);
@@ -199,11 +218,17 @@
         <div class="bg-note">
           <span class="bg-title">行业背景</span>线上生意压力增大，品宣预算被要求肩负转化任务 —— 首次尝试竞价投放小程序直购链路，爆量惊喜。
         </div>
-        <div class="kpi-grid">
+        <div class="kpi-grid solo">
           <div class="kpi"><div class="v">195w+</div><div class="l">28 天销售额</div></div>
-          <div class="kpi"><div class="v">400w+</div><div class="l">3 个月消耗</div></div>
-          <div class="kpi"><div class="v">0.65</div><div class="l">ROI</div></div>
-          <div class="kpi"><div class="v">3 个月</div><div class="l">5-7 月</div></div>
+        </div>
+        <div class="detail-block">
+          <div class="detail-item">
+            <span class="lbl">亮点</span>借助 <b>ADQ 小程序直购链路</b>投放，夏季新品上市即售罄，<b>28 天实现 195 万销售额</b>。品宣预算首次转型，直接带来高转化价值。
+          </div>
+          <div class="detail-item">
+            <span class="lbl">具体操作</span>
+            <span class="flow">一方人群助力快速破冷启<span class="arr">→</span>素材类型丰富多样，持续升级玩转朋友圈版位<span class="arr">→</span>精细化落地页设计：精美细致详情 + 迎合消费者需求多重组货 + 有效种草促转化</span>
+          </div>
         </div>
         <div class="img-box">
           <div class="grid2">
@@ -212,12 +237,6 @@
           </div>
           <div class="cap">朋友圈广告主素材（六一新品）+ 小程序直购详情页</div>
         </div>
-        <ul class="hi-list">
-          <li><b>首次触电</b>：第一次尝试"品宣 + 小程序直购"闭环</li>
-          <li><b>短周期爆量</b>：28 天破 195w，验证低温乳品转化可行性</li>
-          <li><b>节点营销</b>：借六一新品上市 + 朋友圈广告快速起量</li>
-          <li><b>ROI 0.65</b>：偏品宣，为后续 always-on 积累人群资产</li>
-        </ul>
       </div>
     </div>
 
