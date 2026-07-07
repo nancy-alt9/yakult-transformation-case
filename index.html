@@ -78,9 +78,22 @@
 
   .img-box{background:#fdf3ef;border:1px solid #f5d5c8;border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:6px;}
   .img-box .grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
-  .img-box img{width:100%;height:auto;border-radius:5px;display:block;object-fit:cover;}
+  .img-box img{width:100%;height:auto;border-radius:5px;display:block;object-fit:cover;cursor:zoom-in;transition:transform .25s;}
+  .img-box img:hover{transform:scale(1.02);}
   .img-box .cap{font-size:11px;color:#888;text-align:center;}
   .img-single img{max-height:150px;width:auto;margin:0 auto;}
+
+  /* Step-1 素材矩阵+落地页 上下堆叠，图片能占满栏宽看清细节 */
+  .step-1 .img-box .grid2{grid-template-columns:1fr;gap:8px;}
+
+  /* 灯箱：点击图片放大查看 */
+  .lightbox{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;
+    align-items:center;justify-content:center;padding:24px;cursor:zoom-out;
+  }
+  .lightbox.on{display:flex;}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 8px 32px rgba(0,0,0,.5);}
+  .lightbox .close{position:absolute;top:20px;right:24px;color:#fff;font-size:32px;font-weight:200;cursor:pointer;line-height:1;}
 
   .hi-list{list-style:none;padding:0;}
   .hi-list li{
@@ -232,10 +245,10 @@
         </div>
         <div class="img-box">
           <div class="grid2">
-            <img src="2024养乐多朋友圈主素材.png" alt="2024 朋友圈广告主素材">
-            <img src="2024养乐多小程序详情页.png" alt="2024 小程序商品详情页">
+            <img src="2024养乐多素材矩阵.png" alt="2024 养乐多素材矩阵（粉色/露营/童趣/原生实拍系列 + 朋友圈实投）">
+            <img src="2024养乐多落地页详情.png" alt="2024 养乐多小程序落地页（冷链说明 + 多重组货 + 万赞评论）">
           </div>
-          <div class="cap">朋友圈广告主素材（六一新品）+ 小程序直购详情页</div>
+          <div class="cap">左：朋友圈素材矩阵（粉色 · 露营 · 童趣 · 原生实拍 4 大系列） · 右：小程序落地页精细化设计（冷链说明 + 多重组货 + 万赞评论）</div>
         </div>
       </div>
     </div>
@@ -388,5 +401,20 @@
   <div class="foot">案例来源：养乐多 2024-2026 腾讯生态投放实战 · 客户与腾讯营销团队共同复盘</div>
 
 </div>
+
+<!-- 图片灯箱 -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('on')">
+  <span class="close">×</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+<script>
+  document.querySelectorAll('.img-box img').forEach(img=>{
+    img.addEventListener('click', e=>{
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightbox-img').src = e.target.src;
+      lb.classList.add('on');
+    });
+  });
+</script>
 </body>
 </html>
