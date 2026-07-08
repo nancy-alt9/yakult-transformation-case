@@ -85,6 +85,40 @@
 
   /* Step-1 素材矩阵+落地页 上下堆叠，图片能占满栏宽看清细节 */
   .step-1 .img-box .grid2{grid-template-columns:1fr;gap:8px;}
+  /* Step3 (2026)：朋友圈实投 1×2 → 小店详情页，横向流动 */
+  .img-box-2026{padding:6px !important;margin:0 auto;}
+  .img-box-2026 .flow-row{display:grid;grid-template-columns:1fr auto 0.55fr;gap:10px;align-items:center;}
+  .img-box-2026 .fl-ads{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+  .img-box-2026 .fl-ads img{width:100%;height:auto;max-height:170px;object-fit:cover;border-radius:5px;display:block;cursor:zoom-in;transition:transform .25s;}
+  .img-box-2026 .fl-arrow{font-size:26px;color:#c78660;font-weight:700;line-height:1;padding:0 4px;}
+  .img-box-2026 .fl-detail img{width:100%;height:auto;max-height:170px;object-fit:contain;border-radius:5px;display:block;cursor:zoom-in;transition:transform .25s;}
+  .img-box-2026 img:hover{transform:scale(1.02);}
+  @media(max-width:640px){.img-box-2026 .flow-row{grid-template-columns:1fr;} .img-box-2026 .fl-arrow{transform:rotate(90deg);text-align:center;}}
+  /* Step2 图片缩小版：4 张图一行平铺，整体紧凑 */
+  .img-box-sm{padding:6px !important;gap:4px !important;}
+  .img-box-sm .grid2{display:contents !important;}
+  .img-box-sm .row4{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
+  .img-box-sm .row4 img{width:100%;height:auto;border-radius:5px;display:block;object-fit:cover;cursor:zoom-in;transition:transform .25s;}
+  .img-box-sm .row4 img:hover{transform:scale(1.02);}
+  /* Step2 亮点列表：2 列紧凑网格 */
+  .hi-list.grid2col{display:grid;grid-template-columns:1fr 1fr;column-gap:14px;row-gap:0;}
+  .hi-list.grid2col li{border-bottom:1px dashed #f2e0d8;}
+  .hi-list.grid2col li:nth-last-child(-n+1){border-bottom:none;}
+  @media(max-width:640px){.hi-list.grid2col{grid-template-columns:1fr;} .img-box-sm .row4{grid-template-columns:repeat(2,1fr);}}
+
+  /* 素材矩阵：4 系列 + 朋友圈实投，5 列卡片布局 */
+  .mat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+  .mat-card{background:#fff;border:1px solid #f0d8cc;border-radius:6px;overflow:hidden;display:flex;flex-direction:column;}
+  .mat-tag{font-size:11px;font-weight:600;color:#fff;text-align:center;padding:5px 4px;letter-spacing:.5px;}
+  .mat-tag.pink{background:#ec6aa0;}
+  .mat-tag.camp{background:#7cb342;}
+  .mat-tag.kid{background:#f5a623;}
+  .mat-tag.real{background:#a67c52;}
+  .mat-tag.moment{background:#4a90e2;}
+  .mat-imgs{display:flex;flex-direction:column;gap:3px;padding:4px;background:#faf3ef;flex:1;}
+  .mat-imgs img{width:100%;height:auto;border-radius:3px;display:block;object-fit:cover;cursor:zoom-in;transition:transform .25s;}
+  .mat-imgs img:hover{transform:scale(1.02);}
+  @media(max-width:900px){.mat-grid{grid-template-columns:repeat(2,1fr);}}
 
   /* 灯箱：点击图片放大查看 */
   .lightbox{
@@ -141,8 +175,21 @@
   .kpi-grid.solo .kpi{padding:14px 12px;}
   .kpi-grid.solo .kpi .v{font-size:28px;}
   .kpi-grid.solo .kpi .l{font-size:12.5px;}
+  .kpi-grid.kpi-grid-3{grid-template-columns:1fr 1fr 1fr;}
+  .kpi-grid.kpi-grid-3 .kpi{padding:12px 10px;}
+  .kpi-grid.kpi-grid-3 .kpi .v{font-size:22px;}
+  .kpi-grid.kpi-grid-3 .kpi .l{font-size:12px;}
 
   /* 客户三件事 */
+  /* STEP1 内嵌三率避坑提醒（浓缩版） */
+  .warn-inline{margin-top:10px;background:linear-gradient(135deg,#fff8e6,#fff1d0);border:1.5px solid #f4a53a;border-left:4px solid #d97706;border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:1fr 78px;gap:10px;align-items:center;}
+  .warn-inline-title{color:#8a3d00;font-size:13px;font-weight:800;margin-bottom:5px;line-height:1.4;}
+  .warn-inline-desc{color:#5c3a10;font-size:11.5px;line-height:1.6;}
+  .warn-inline-desc b{color:#a34400;}
+  .warn-inline-qr{display:flex;flex-direction:column;align-items:center;gap:3px;}
+  .warn-inline-qr img{width:72px;height:72px;display:block;background:#fff;padding:3px;border-radius:5px;border:1px solid #f0d99a;}
+  .warn-inline-qrcap{font-size:10px;color:#8a3d00;text-align:center;line-height:1.3;font-weight:600;}
+
   .todo-wrap{
     background:linear-gradient(135deg,#fff5ef,#ffe8dd);
     border:2px dashed #f4511e;border-radius:14px;
@@ -225,7 +272,7 @@
       <div class="step-head">
         <div class="num">1</div>
         <h3><b>2024 转型初期</b><br><span style="font-weight:400;opacity:.9;font-size:12px;">小程序直购阶段性投放起量</span>
-        <div class="head-tags"><span>首次尝试</span><span>28 天破 195w</span><span>ROI 0.65</span></div></h3>
+        <div class="head-tags"><span>首次尝试</span></div></h3>
       </div>
       <div class="step-body">
         <div class="bg-note">
@@ -244,10 +291,44 @@
           </div>
         </div>
         <div class="img-box">
-          <div class="grid2">
-            <img src="2024养乐多素材矩阵.png" alt="2024 养乐多素材矩阵（粉色/露营/童趣/原生实拍系列 + 朋友圈实投）">
+          <div class="mat-grid">
+            <div class="mat-card">
+              <div class="mat-tag pink">粉色系列</div>
+              <div class="mat-imgs">
+                <img src="材料-粉色-含铁KV.jpg" alt="粉色系列 KV：养乐多蜜桃味 · 富含铁元素 · 甜而不腻一口上头 + 送小粉瓶">
+                <img src="材料-粉色-家族.png" alt="养乐多家族：含铁小粉瓶 + 活力小红瓶 + 低糖小蓝瓶 + 500亿小金瓶">
+              </div>
+            </div>
+            <div class="mat-card">
+              <div class="mat-tag camp">露营系列</div>
+              <div class="mat-imgs">
+                <img src="材料-粉色-KV.jpg" alt="露营系列：蜜桃味主视觉">
+                <img src="材料-露营-干杯.jpg" alt="露营系列：城市出桃 · 放肆一夏">
+              </div>
+            </div>
+            <div class="mat-card">
+              <div class="mat-tag kid">童趣系列</div>
+              <div class="mat-imgs">
+                <img src="材料-童趣-六一.png" alt="童趣系列：六一快乐～拆玩多蜜桃味 · 下单即送">
+                <img src="材料-童趣-日常求点赞.png" alt="童趣系列：Yakult 日常生活 · 求点赞～">
+              </div>
+            </div>
+            <div class="mat-card">
+              <div class="mat-tag real">原生实拍</div>
+              <div class="mat-imgs">
+                <img src="材料-原生实拍.png" alt="原生实拍系列：6 宫格产品实拍（杂志/多联包/磁贴）">
+                <img src="材料-原生实拍2.png" alt="原生实拍系列：6 宫格产品实拍（多联包/单瓶/手举）">
+              </div>
+            </div>
+            <div class="mat-card">
+              <div class="mat-tag moment">朋友圈实投</div>
+              <div class="mat-imgs">
+                <img src="材料-朋友圈实投.png" alt="朋友圈实投截图：甜蜜干杯">
+                <img src="材料-朋友圈实投2.png" alt="朋友圈实投截图：谁能拒绝蜜桃味的养乐多？下单即赠冰箱贴">
+              </div>
+            </div>
           </div>
-          <div class="cap">朋友圈素材矩阵（粉色 · 露营 · 童趣 · 原生实拍 4 大系列）</div>
+          <div class="cap">朋友圈素材矩阵（粉色 · 露营 · 童趣 · 原生实拍 4 大系列 + 朋友圈实投）</div>
         </div>
       </div>
     </div>
@@ -257,28 +338,18 @@
       <div class="step-head">
         <div class="num">2</div>
         <h3><b>2025 转型第二阶段</b><br><span style="font-weight:400;opacity:.9;font-size:12px;">小程序直购全年稳定投放增长</span>
-        <div class="head-tags"><span>联名 × 加价买赠</span><span>日耗 1.6w</span><span>ROI 0.75</span></div></h3>
+        <div class="head-tags"><span>联名 × 加价买赠</span></div></h3>
       </div>
       <div class="step-body">
         <div class="bg-note">
-          <span class="bg-title">行业背景</span>各平台流量成本升高，微信成为品牌重点发力渠道 —— 小程序直购通过精细化运营（联名 + 素材 + 投流 + 货组 + 加价买赠）实现销量突破。
+          <span class="bg-title">行业背景</span>各平台流量成本升高，微信成为品牌重点发力渠道 —— 小程序直购通过精细化投放运营（IP联名背书 + 多规格丰富素材 + 货组加价买赠）实现销量攀升。
+        </div>
+        <div class="kpi-grid solo">
+          <div class="kpi"><div class="v">600w+</div><div class="l">全年累计消耗</div></div>
         </div>
         <div class="kpi-grid">
-          <div class="kpi"><div class="v">600w+</div><div class="l">累计消耗</div></div>
-          <div class="kpi"><div class="v">1.6w</div><div class="l">日均消耗</div></div>
-          <div class="kpi"><div class="v">0.75</div><div class="l">ROI ↑15%</div></div>
-          <div class="kpi"><div class="v">50%+</div><div class="l">年轻宝妈</div></div>
-        </div>
-        <div class="img-box">
-          <div class="grid2">
-            <img src="2025上新联名货组（hellokitty联名小夜灯陶瓷杯）.png" alt="联名货组 1">
-            <img src="2025（2）上新联名货组（hellokitty联名小夜灯陶瓷杯）.png" alt="联名货组 2">
-          </div>
-          <div class="grid2">
-            <img src="2025小程序商品详情页图片1.png" alt="小程序详情页 1">
-            <img src="2025小程序商品详情页图片2.png" alt="小程序详情页 2">
-          </div>
-          <div class="cap">Hello Kitty 联名货组 + 小程序详情页</div>
+          <div class="kpi"><div class="v">+15%</div><div class="l">投放 ROI 提升</div></div>
+          <div class="kpi"><div class="v">50%+</div><div class="l">年轻宝妈占比</div></div>
         </div>
         <ul class="hi-list">
           <li><b>联名货组</b>：Hello Kitty 小夜灯陶瓷杯，拉客单</li>
@@ -287,6 +358,15 @@
           <li><b>版位破圈</b>：朋友圈 → 公众号，触达增量</li>
           <li><b>模式沉淀</b>：分户 + 横版素材 SOP 可复用</li>
         </ul>
+        <div class="img-box img-box-sm">
+          <div class="row4">
+            <img src="2025上新联名货组（hellokitty联名小夜灯陶瓷杯）.png" alt="联名货组 1">
+            <img src="2025（2）上新联名货组（hellokitty联名小夜灯陶瓷杯）.png" alt="联名货组 2">
+            <img src="2025小程序商品详情页图片1.png" alt="小程序详情页 1">
+            <img src="2025小程序商品详情页图片2.png" alt="小程序详情页 2">
+          </div>
+          <div class="cap">Hello Kitty 联名货组 + 小程序详情页</div>
+        </div>
       </div>
     </div>
 
@@ -295,35 +375,39 @@
       <div class="step-head">
         <div class="num">3</div>
         <h3><b>2026 爆发期</b><br><span style="font-weight:400;opacity:.9;font-size:12px;">小程序和小店直购双管齐下爆量</span>
-        <div class="head-tags"><span>日耗 37w</span><span>下单率 2.49%</span><span>腾讯营销智券</span></div></h3>
+        <div class="head-tags"><span>腾讯营销智券</span></div></h3>
       </div>
       <div class="step-body">
         <div class="bg-note">
-          <span class="bg-title">行业背景</span>纯私域闭环链路拿量吃力，跟随平台发展启动微信小店运营 —— 小程序 & 小店直购双管齐下 + 平台政策扶持（店铺货补 + 智券），618 销量爆发。
+          <span class="bg-title">行业背景</span>纯私域闭环链路跑量上限低，跟随平台发展，品牌启动微信小店运营 —— 微信小店 & 小程序直购双管齐下 + 平台政策扶持（店铺货补 + 智券），618 销量爆发。
+        </div>
+        <div class="kpi-grid solo">
+          <div class="kpi"><div class="v">37w+</div><div class="l">单日消耗峰值</div></div>
         </div>
         <div class="kpi-grid">
-          <div class="kpi"><div class="v">37w+</div><div class="l">单日消耗峰值</div></div>
-          <div class="kpi"><div class="v">2.49%</div><div class="l">下单率</div></div>
-          <div class="kpi"><div class="v">+58%</div><div class="l">下单率提升</div></div>
+          <div class="kpi"><div class="v">+58%</div><div class="l">平台智券扶持下单率提升</div></div>
           <div class="kpi"><div class="v">618</div><div class="l">销量爆发节点</div></div>
         </div>
-        <div class="img-box">
-          <div class="img-single">
-            <img src="2026小店商品详情页图片.jpg" alt="2026 小店详情页">
-          </div>
-          <div class="grid2">
-            <img src="2026养乐多投放素材.png" alt="2026 投放素材 1">
-            <img src="2026养乐多投放素材2.png" alt="2026 投放素材 2">
-          </div>
-          <div class="cap">小店直购 · 联名新品 · 智券叠加素材</div>
-        </div>
-        <ul class="hi-list">
-          <li><b>开店转型</b>：小程序 → 微信小店，链路更短、拿量更稳</li>
+        <ul class="hi-list grid2col">
+          <li><b>开店转型</b>：小程序 → 微信小店，公私域联动，拓展送礼场景，拿量更多</li>
           <li><b>双链路并行</b>：小程序 & 小店直购双管齐下</li>
           <li><b>联名延续</b>：小店直购上新联名，保持话题性</li>
           <li><b>双政策扶持</b>：店铺货补 + 腾讯营销智券</li>
           <li><b>下单率跃升</b>：1.57% → 2.49%（+58%），618 爆发</li>
         </ul>
+        <div class="img-box img-box-2026">
+          <div class="flow-row">
+            <div class="fl-ads">
+              <img src="2026养乐多投放素材.png" alt="2026 投放素材 1">
+              <img src="2026养乐多投放素材2.png" alt="2026 投放素材 2">
+            </div>
+            <div class="fl-arrow">→</div>
+            <div class="fl-detail">
+              <img src="2026小店商品详情页图片.jpg" alt="2026 小店详情页">
+            </div>
+          </div>
+          <div class="cap">朋友圈实投素材 → 小店商品详情页</div>
+        </div>
       </div>
     </div>
 
@@ -343,10 +427,19 @@
         <p>从"小程序直购"升级到"小店直购"的前提，也是打通生态经营的入口。</p>
         <ul class="check">
           <li>完成小店主体入驻与资质审核</li>
-          <li>上架核心 SKU（含联名 / 主推）</li>
+          <li>上架核心 SKU（含主推 / 联名限定 / 引流款）试跑 MVP</li>
           <li>配置详情页、库存、发货能力</li>
-          <li>可对齐"最小可跑通 SKU 清单"</li>
         </ul>
+        <div class="warn-inline">
+          <div class="warn-inline-text">
+            <div class="warn-inline-title">⚠️ 入驻第一课：读懂 & 遵守「小店三率」</div>
+            <div class="warn-inline-desc">养乐多前车之鉴：爆量后未关注三率 → 智券被下。<br><b>正确姿势</b>：入驻第一天就读懂三率规则，对齐定价 / 优惠 / 履约，再开始投放。</div>
+          </div>
+          <div class="warn-inline-qr">
+            <img src="小店三率避坑文档二维码.png" alt="小店三率避坑文档二维码">
+            <div class="warn-inline-qrcap">扫码查看<br>避坑文档</div>
+          </div>
+        </div>
       </div>
 
       <div class="todo-card">
@@ -364,13 +457,13 @@
 
       <div class="todo-card">
         <span class="badge">STEP 3</span>
-        <h4>🎁 匹配腾讯营销智券扶持</h4>
+        <h4>🎁 匹配微信小店 & 腾讯营销平台扶持</h4>
         <p>腾讯生态原生扶持工具，撬动精准人群、放大投放效率，是"稳态"到"爆量"的加速器。</p>
         <ul class="check">
           <li>对齐智券申请条件与可享额度</li>
-          <li>叠加到联名 / 大促节点使用</li>
+          <li>可叠加到新品联名 / 大促节点使用</li>
           <li>结合小店链路承接转化</li>
-          <li>参考：下单率 1.57% → 2.49%</li>
+          <li>预估下单率可提升 50%+</li>
         </ul>
       </div>
 
@@ -384,15 +477,15 @@
       <div class="v-grid">
         <div class="v-item"><div class="num">1</div><div class="txt"><b>行业同频</b>同为低温乳品，保鲜期短 / 高频复购，方法论直接迁移</div></div>
         <div class="v-item"><div class="num">2</div><div class="txt"><b>路径清晰</b>三年三步可量化验证，是可持续经营的完整链路</div></div>
-        <div class="v-item"><div class="num">3</div><div class="txt"><b>生态红利</b>联名 + 小店 + 智券，均为腾讯生态原生能力</div></div>
+        <div class="v-item"><div class="num">3</div><div class="txt"><b>生态红利</b>用户覆盖广且高质 + 小店礼赠场景 + 平台重点扶持大品牌</div></div>
       </div>
     </div>
     <div class="cta">
       <h3>低温乳品客户，欢迎复用这条链路</h3>
-      <p>起步不用一步到位，把"开店 · 联名 · 智券"三件事分阶段做起来，就能跑出属于自己的爆量曲线。</p>
+      <p>起步不用一步到位，把"开小店 · 上联名 · 报扶持"三件事分步做起来，就能跑出属于自己的爆量曲线。</p>
       <div class="tag-list">
         <span>#低温乳品</span><span>#微信小店</span><span>#联名破圈</span>
-        <span>#朋友圈起量</span><span>#公众号横版</span><span>#腾讯营销智券</span><span>#always-on</span>
+        <span>#腾讯营销智券</span>
       </div>
     </div>
   </div>
